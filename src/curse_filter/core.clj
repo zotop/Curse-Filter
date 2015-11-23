@@ -1,10 +1,25 @@
 (ns curse-filter.core)
 
-(defn foo
-  "I don't do a whole lot."
-  [x]
-  (println x "Hello, World!"))
+(def textToCensor
+  "Hello asshole, could you shut the fuck up?")
+
+(def censoredWords
+  ["asshole" "fuck"])
+
+
+(defn curseFilter
+  "method doc goes here"
+  [text [word & restOfWords]]
+  (if (not-empty word)
+    (do (println word)
+        (curseFilter text restOfWords))
+    (println "over")
+  )
+)
 
 (defn -main [& args]
-  (foo "Joao")
+
+  (curseFilter textToCensor censoredWords)
  )
+
+

@@ -1,18 +1,18 @@
 (ns curse-filter.core)
 
 (def textToCensor
-  "Hello asshole, could you shut the fuck up?")
+  "Hello Asshole, could you shut the Fuck up?")
 
 (def censoredWords
   ["asshole" "fuck"])
 
 
 (defn curseFilter
-  "method doc goes here"
   [text [word & restOfWords]]
   (if (not-empty word)
     (do
-      (def newText (clojure.string/replace text word "*"))
+      (def wordPattern (re-pattern (str "(?i)" word))) ;; (?i)-> case insensitive
+      (def newText (clojure.string/replace text wordPattern "*"))
       (curseFilter newText restOfWords)
     )
     (println text)

@@ -11,9 +11,11 @@
   "method doc goes here"
   [text [word & restOfWords]]
   (if (not-empty word)
-    (do (println word)
-        (curseFilter text restOfWords))
-    (println "over")
+    (do
+      (def newText (clojure.string/replace text word "*"))
+      (curseFilter newText restOfWords)
+    )
+    (println text)
   )
 )
 

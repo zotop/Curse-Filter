@@ -1,14 +1,18 @@
-# curse-filter
+#Curse Filter
 
-A Clojure library designed to ... well, that part is up to you.
+First steps in Clojure.
+A simple function that replace words in a text by '*'
+
+## Requirements
+
+Leiningen
 
 ## Usage
 
-FIXME
+Input: lein run "Fuck I said shit" "shit,fuck"
 
-## License
+Ouput: "* I said *"
 
-Copyright © 2015 FIXME
+1st argument: (string) text to be filtered
+2nd argument: (string) comma separated words that should be removed from the text
 
-Distributed under the Eclipse Public License either version 1.0 or (at
-your option) any later version.

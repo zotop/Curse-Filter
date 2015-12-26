@@ -15,9 +15,9 @@
 )
 
 (defn -main [& args]
-  (def textToCensor (nth args 0))
-  (def censoredWords (str/split (nth args 1) #","))
-  (println (curseFilter textToCensor censoredWords))
+  (def textToCensorArg (nth args 0))
+  (def censoredWordsArg (str/split (nth args 1) #","))
+  (println (curseFilter textToCensorArg censoredWordsArg))
  )
 
 

@@ -2,6 +2,12 @@
   (:require [clojure.test :refer :all]
             [curse-filter.core :refer :all]))
 
-(deftest a-test
-  (testing "FIXME, I fail."
-    (is (= 0 1))))
+(def textToCensor
+  "Fuck you AsShole")
+
+(def censoredWords
+  ["asshole" "fuck"])
+
+(deftest curseFilter-test
+  (testing "Filtering out 2 curse words from a text"
+    (is (= (curseFilter textToCensor censoredWords) "* you *"))))

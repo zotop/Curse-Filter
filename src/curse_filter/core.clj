@@ -1,10 +1,5 @@
-(ns curse-filter.core)
-
-(def textToCensor
-  "Hello Asshole, could you shut the Fuck up?")
-
-(def censoredWords
-  ["asshole" "fuck"])
+(ns curse-filter.core
+(:require [clojure.string :as str]))
 
 
 (defn curseFilter
@@ -15,13 +10,14 @@
       (def newText (clojure.string/replace text wordPattern "*"))
       (curseFilter newText restOfWords)
     )
-    (println text)
+    text ;; return filtered text
   )
 )
 
 (defn -main [& args]
-
-  (curseFilter textToCensor censoredWords)
+  (def textToCensor (nth args 0))
+  (def censoredWords (str/split (nth args 1) #","))
+  (println (curseFilter textToCensor censoredWords))
  )
 
 
